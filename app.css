@@ -1,0 +1,50 @@
+textarea {
+	resize:none;
+	width:100%; 
+	height:80px;
+	font-weight: bold;
+	padding: 2px 4px;
+	border-radius: 0px;
+}
+label {
+	margin: 0px;
+}
+td {
+	padding: 1px;
+}
+th {
+	text-align: center;
+	font-weight: bold;
+	font-size: 70%;
+	/* color: white; */
+	/* border: 1px solid lightgray; */
+	/* background-color: blue; */
+}
+td select, td input[type="text"], td input[type="number"]{
+	width: 100%;
+	border-radius: 0px;
+	padding: 2px;
+	font-size: 85%;
+	font-weight: bold;
+}
+
+div.half {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.new-form {
+	display: none;
+}
+.form-control {
+	border-radius: 0px !important;
+	padding: 2px 8px !important;
+	height: 28px !important;
+	font-weight: bold !important;
+}
+.form-group {
+	margin-bottom: 3px;
+}
+.breadcrumb {
+	margin-bottom: 10px;
+}

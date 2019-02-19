@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="xls" ng-controller="XlsCtrl">
+
+<head>
+    <meta charset="utf-8">
+    <title>XLSTOJSON</title>
+</head>
+
+<body>
+
+    <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+        onchange="angular.element(this).scope().handleFile(this)">
+
+    <pre>{{data|json}}</pre>
+
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/sheetjs.com/FileSaver.js"></script>
+    <script src="assets/sheetjs.com/xlsx.full.min.js"></script>
+    <script src="xls.js"></script>
+</body>

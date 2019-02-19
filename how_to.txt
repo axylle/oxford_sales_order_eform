@@ -1,0 +1,13 @@
+HOW TO FORM JSON DB FROM EXCEL FILE FROM CLIENT
+
+1. OPEN xlstojson.html found in eform folder (USE XAMPP).
+2. Press Choose File button and select excel file from client. make sure that the file to be converted to json is in the first sheet. (A simple of excel file is attached in this folder 16712.xlsx)
+3. Wait
+4. Copy result into text file, before saving remove the first few null lines. save accordingly
+	a. free_qty.js -> for free quantity file
+	b. special_price.js -> for discounts file
+5. free_qty.js and special_price.js must be save to /db/ folder
+6. Change version of eform in line 15 of app.js
+7. OPEN index.html in Safari and save the web page to *.webarchive
+8. Upload file to /oxford/electronicformtools/ in doccs-as
+9. Reload eform in iPAD

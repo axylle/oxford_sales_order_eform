@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html ng-app="app" id="ng-app" ng-controller="AppCtrl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>{{eForm.filename}}</title>
+
+    <link rel="stylesheet" href="assets/css/ratchet-theme-ios.min.css">
+    <link rel="stylesheet" href="assets/css/eform-v3.css">
+    <link rel="stylesheet" href="assets/css/awesomplete.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body ng-cloak style="margin:0 auto;">
+    <ul class="breadcrumb">
+        <li class="active">
+            <img src="assets/img/logo.png" width="50">
+        </li>
+        <li class="active" style="font-size:20px;color:#4582ec">{{eForm.title}}</li>
+        <li class="active" style="font-size:10px">{{eForm.version}}</li>
+    </ul>
+    <div class="col-xs-6 half">
+        <div class="form-group col-xs-6">
+            <label>CUSTOMER CODE:</label>
+            <input type="text" class="form-control" id="obj_customer_code" ng-model="stdFormData.obj_customer_code"
+                readonly>
+        </div>
+        <div class="form-group col-xs-6">
+            <label>DATE:</label>
+            <input type="text" class="form-control" id="obj_date" ng-model="stdFormData.obj_date" readonly>
+        </div>
+
+        <div class="form-group col-xs-12">
+            <label>CUSTOMER NAME:</label>
+            <input type="text" class="form-control" id="obj_customer_name" ng-model="stdFormData.obj_customer_name"
+                caption="CUSTOMER NAME">
+        </div>
+        <!-- <div class="form-group col-xs-12">
+            <label>CUSTOMER CLASSIFICATION:</label>
+            <input type="text" class="form-control" id="obj_customer_classification" ng-model="stdFormData.obj_customer_classification"
+                caption="CUSTOMER CLASSIFICATION">
+        </div> -->
+        <div class="form-group col-xs-12">
+            <label>BILL TO ADDRESS:</label>
+            <textarea ng-model="stdFormData.obj_address" id="obj_address"></textarea>
+        </div>
+
+        <div class="form-group col-xs-6">
+            <label>AE NAME:</label>
+            <input type="text" class="form-control" id="obj_ae_name" ng-model="stdFormData.obj_ae_name" readonly>
+        </div>
+        <div class="form-group col-xs-6">
+            <label>P.O. NUMBER:</label>
+            <input type="text" class="form-control" id="obj_po_number" ng-model="stdFormData.obj_po_number">
+        </div>
+
+        <div class="form-group col-xs-6">
+            <label>PAF NUMBER:</label>
+            <input type="text" class="form-control" id="obj_paf_number" ng-model="stdFormData.obj_paf_number">
+        </div>
+        <div class="form-group col-xs-6">
+            <label>ORDER SOURCE:</label>
+            <select ng-model="stdFormData.obj_order_source" class="form-control" id="obj_order_source"
+                caption="ORDER SOURCE">
+                <option value=""> --- </option>
+                <option value="SALESMAN">SALESMAN</option>
+                <option value="PRINCIPAL">PRINCIPAL</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-6 half">
+        <div class="form-group col-xs-6">
+            <label>ORDER NUMBER:</label>
+            <input type="text" class="form-control" id="obj_order_num" ng-model="stdFormData.obj_order_num" readonly>
+        </div>
+        <div class="form-group col-xs-6">
+            <label>TERMS:</label>
+            <input type="text" class="form-control data-form" id="obj_terms" ng-model="stdFormData.obj_terms">
+            <select ng-model="stdFormData.obj_terms" class="form-control new-form" id="termSelect">
+                <option value="DEFAULT TERM">DEFAULT TERM</option>
+                <option value="30 DAYS">30 DAYS</option>
+                <option value="30 DAYS CHEQUE ON DELIVERY">30 DAYS CHEQUE ON DELIVERY</option>
+                <option value="30 DAYS PDC SALESMAN TO COLLECT">30 DAYS PDC SALESMAN TO COLLECT</option>
+                <option value="35 DAYS CHEQUE ON DELIVERY">35 DAYS CHEQUE ON DELIVERY</option>
+                <option value="45 DAYS">45 DAYS</option>
+                <option value="45 DAYS CHEQUE ON DELIVERY">45 DAYS CHEQUE ON DELIVERY</option>
+                <option value="45 DAYS PDC SALESMAN TO COLLECT">45 DAYS PDC SALESMAN TO COLLECT</option>
+                <option value="60 DAYS">60 DAYS</option>
+                <option value="60 DAYS CHEQUE ON DELIVERY">60 DAYS CHEQUE ON DELIVERY</option>
+                <option value="60 DAYS PDC SALESMAN TO COLLECT">60 DAYS PDC SALESMAN TO COLLECT</option>
+                <option value="7 DAYS">7 DAYS</option>
+                <option value="7 DAYS CHEQUE ON DELIVERY">7 DAYS CHEQUE ON DELIVERY</option>
+                <option value="90 DAYS CHEQUE ON DELIVERY">90 DAYS CHEQUE ON DELIVERY</option>
+                <option value="CASH ON DELIVERY">CASH ON DELIVERY</option>
+                <option value="CONSIGNMENT">CONSIGNMENT</option>
+                <option value="CREDIT CARD">CREDIT CARD</option>
+                <option value="DATED CHEQUE ON DELIVERY">DATED CHEQUE ON DELIVERY</option>
+                <option value="IS 90 DAYS">IS 90 DAYS</option>
+                <option value="ONLINE PAYMENT 30 DAYS">ONLINE PAYMENT 30 DAYS</option>
+                <option value="SPLIT CHEQUES 30-60-90 UPON DELIVERY">SPLIT CHEQUES 30-60-90 UPON DELIVERY</option>
+                <option value="SPLIT CHEQUES-10 MONTHS">SPLIT CHEQUES-10 MONTHS</option>
+                <option value="STRICTLY 30 DAYS CHEQUE ON DELIVERY">STRICTLY 30 DAYS CHEQUE ON DELIVERY</option>
+                <option value="STRICTLY CASH ON DELIVERY">STRICTLY CASH ON DELIVERY</option>
+                <option value="TRIANON TERM">TRIANON TERM</option>
+            </select>
+        </div>
+
+        <div class="form-group col-xs-12">
+            <label>CHOOSE YOUR SHIP TO ADDRESS HERE:</label>
+            <input type="text" class="form-control data-form" id="obj_ship_2" ng-model="stdFormData.obj_ship">
+            <select ng-model="stdFormData.obj_ship" class="form-control new-form" id="shipSelect">
+            </select>
+        </div>
+
+        <div class="form-group col-xs-12">
+            <label>SHIP TO ADDRESS:</label>
+            <textarea ng-model="stdFormData.obj_ship" id="obj_ship"></textarea>
+        </div>
+
+
+        <div class="form-group col-xs-12">
+            <label>INSTRUCTIONS:</label>
+            <textarea ng-model="stdFormData.obj_instruction" id="obj_instruction"></textarea>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <br>
+    </div>
+    <div align="center">
+        <table style="width:99%;" id="rowTable">
+            <thead>
+                <th style="width:180px;">CODE</th>
+                <th style="width:380px;">PRODUCT DESCRIPTION</th>
+                <th style="width:55px;">PRODUCT<br>CODE</th>
+                <th style="width:50px;">REG<br>QTY.</th>
+                <th style="width:50px;">FREE<br>QTY.</th>
+                <th style="width:70px;">PRICE</th>
+                <th style="width:70px;">SPECIAL<br>PRICE</th>
+                <th style="width:50px;">%DISC</th>
+                <th>TOTAL</th>
+            </thead>
+            <tbody tr-row>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button class="btn btn-success" ng-click="addRow()">Add Row</button>
+                        <button class="btn btn-danger" ng-click="deleteRow()">Delete Row</button>
+                    </td>
+                    <td style="text-align:right; font-weight:bold; font-size:100%" colspan="4">GRAND TOTAL:&nbsp;</td>
+                    <td colspan="2">
+                        <input type="text" id="obj_grand_total" ng-model="stdFormData.obj_grand_total" readonly
+                            style="display:none">
+                        <input type="text" id="obj_grand_total_2" ng-model="stdFormData.obj_grand_total_2" readonly
+                            price style="text-align:right; font-weight:bold; font-size:100%">
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <table style="width:99%" id="vwTable">
+            <thead>
+                <th>CODE</th>
+                <th>PRODUCT DESCRIPTION</th>
+                <th>PRODUCT<br>CODE</th>
+                <th>REG<br>QTY.</th>
+                <th>FREE<br>QTY.</th>
+                <th>PRICE</th>
+                <th>SPECIAL<br>PRICE</th>
+                <th>%DISC</th>
+                <th>TOTAL</th>
+            </thead>
+            <tbody tr-view style="font-weight:bold; font-size: 95%;"></tbody>
+            <tfoot style="text-align:right; font-weight:bold; font-size:110%">
+                <tr>
+                    <td colspan="9"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td colspan="4">GRAND TOTAL:&nbsp;</td>
+                    <td colspan="2" id="vw_grand_total_2" style="border:1px solid lightgray; padding: 4px"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <hr>
+        <textarea class="col-xs-12" id="obj_result" name="obj_result" style="display:none"></textarea>
+        <div class="col-xs-offset-4 col-xs-2">
+            <button type="button" ng-click="resetForm()" class="btn btn-default" style="width:100%">Reset</button>
+        </div>
+        <div class="col-xs-2">
+            <button type="button" ng-click="submitForm(stdFormData)" class="btn btn-primary"
+                style="width:100%">Submit</button>
+        </div>
+        <br><br>
+    </div>
+
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/dynamic-forms.js"></script>
+    <script src="assets/js/sign.js"></script>
+    <script src="assets/js/awesomplete.js"></script>
+
+    <script src="app.js"></script>
+    <script src="directive.js"></script>
+    <script src="functions.js"></script>
+
+    <script src="db/free_qty.js"></script>
+    <script src="db/special_price.js"></script>
+</body>
+
+</html>
