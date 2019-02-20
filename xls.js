@@ -51,9 +51,27 @@ xls.controller('XlsCtrl', function ($scope) {
                         data[row][h] = value;
                     }
                 }
-                console.log(data);
-                $scope.$apply(function(){
-                    $scope.data = data;
+                var datax = [];
+                for (var i in data) {
+                    var row = data[i];
+                    if (row) {
+                        datax.push(row);
+                    }
+                }
+                
+                var xrow = datax[0];
+                var title = 'free_qty.js';
+                var db_title = "db_free";
+                
+                if(xrow.disc_trade_price) {
+                    title = 'special_price.js';
+                    db_title = "db_price";
+                }
+
+                $scope.$apply(function () {
+                    $scope.title = title;
+                    $scope.db_title = db_title;
+                    $scope.data = datax;
                 });
             };
 
@@ -74,4 +92,15 @@ xls.controller('XlsCtrl', function ($scope) {
             return _d.getFullYear() + '-' + ('0' + (_d.getMonth() + 1)).slice(-2) + '-' + ('0' + _d.getDate()).slice(-2);
         }
     };
+
+    $scope.downloadFile = function () {
+        var text = $("#text").html();
+        var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+        saveAs(blob, $scope.title);
+    }
 });
+
+
+// $("#btn-save").click( function() {
+// });
+

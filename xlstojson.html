@@ -7,11 +7,16 @@
 </head>
 
 <body>
-
-    <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
-        onchange="angular.element(this).scope().handleFile(this)">
-
-    <pre>{{data|json}}</pre>
+    <div>
+        <input type="file"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+            onchange="angular.element(this).scope().handleFile(this)"><br>
+        <form ng-submit="downloadFile()" ng-if="data.length > 0">
+            <button type="submit">Downlaod</button>
+        </form>
+    </div>
+    
+    <pre id="text">var {{db_title}} = {{data|json}}</pre>
 
     <script src="assets/js/angular.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
